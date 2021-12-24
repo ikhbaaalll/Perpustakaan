@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\BookStoreRequest;
+use App\Http\Requests\Admin\BookUpdateRequest;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -28,26 +29,25 @@ class BookController extends Controller
     {
         $category->books()->create($bookStoreRequest->validated());
 
-        return redirect()->route('admin.categories.books');
+        return redirect()->route('admin.categories.books.index', $category);
     }
 
-    public function show(Book $book)
+    public function edit(Category $category, Book $book)
     {
-        //
+        return view('pages.admin.book.edit', compact('category', 'book'));
     }
 
-    public function edit(Book $book)
+    public function update(BookUpdateRequest $bookUpdateRequest, Category $category, Book $book)
     {
-        //
+        $book->update($bookUpdateRequest->validated());
+
+        return redirect()->route('admin.categories.books.index', $category)->with('status', "Sukses mengubah buku {$book->name}");
     }
 
-    public function update(Request $request, Book $book)
+    public function destroy(Category $category, Book $book)
     {
-        //
-    }
+        $book->delete();
 
-    public function destroy(Book $book)
-    {
-        //
+        return redirect()->route('admin.categories.books.index', $category)->with('status', "Sukses menghapus buku {$book->name}");
     }
 }

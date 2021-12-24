@@ -23,7 +23,7 @@
                         <thead>
                             <tr>
                                 <th style="width: 10px">No</th>
-                                <th>Nama</th>
+                                <th>Kategori</th>
                                 <th>Jumlah Buku</th>
                                 <th style="width: 150px">Aksi</th>
                             </tr>
@@ -66,6 +66,7 @@
     <script>
         $(function() {
             $("#example1").DataTable({
+                "order": [],
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,

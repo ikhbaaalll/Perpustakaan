@@ -18,9 +18,9 @@ class CreateLoansTable extends Migration
             $table->foreignId('book_id')->constrained()->cascadeOnDelete();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->integer('quantity');
-            $table->dateTime('date_of_loan');
-            $table->dateTime('date_of_return');
-            $table->dateTime('date_of_return_confirmation');
+            $table->date('date_of_loan');
+            $table->date('date_of_return');
+            $table->date('date_of_return_confirmation')->nullable();
             $table->integer('status');
             $table->timestamps();
         });

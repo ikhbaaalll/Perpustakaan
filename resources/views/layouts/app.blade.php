@@ -61,16 +61,18 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
+                    {{-- <form
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-light border-0 small"
+                                    placeholder="Search books" aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form> -->
+                        </form> --}}
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -87,25 +89,17 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-
-                                {{-- @if (auth()->user()->role == 2)
-                                    <a class="dropdown-item" href="{{ route('admin.water-bombing.index') }}">
-                                        <i class="fas fa-users-cog fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Operator Water Bombing
+                                @if (auth()->user()->role == 1)
+                                    <a class="dropdown-item" href="{{ route('admin.user') }}">
+                                        <i class="fas fa-users fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        User
                                     </a>
                                 @endif
 
-                                @if (auth()->user()->role == 1)
-                                    <a class="dropdown-item" href="{{ route('admin.user.index') }}">
-                                        <i class="fas fa-users-cog fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Management User
-                                    </a>
-                                @else
-                                    <a class="dropdown-item" href="{{ route('admin.user.edit', auth()->user()) }}">
-                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Edit Akun
-                                    </a>
-                                @endif --}}
+                                <a class="dropdown-item" href="{{ route('profile') }}">
+                                    <i class="fas fa-users-cog fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
 
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

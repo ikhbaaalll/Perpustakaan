@@ -20,8 +20,9 @@ class CreateBooksTable extends Migration
             $table->string('publisher');
             $table->string('isbn');
             $table->string('author');
-            $table->dateTime('date_of_entry');
+            $table->date('date_of_entry');
             $table->integer('quantity');
+            $table->text('description');
             $table->timestamps();
         });
     }

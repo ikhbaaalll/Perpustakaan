@@ -3,7 +3,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon">
-            <img src="{{ asset('asset/logo/itera.png') }}" width="32px" height="35px" />
+            <i class="fas fa-book-open"></i>
         </div>
     </a>
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
@@ -15,15 +15,15 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('admin.dashboard') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+        <a class="nav-link" href="{{ route('admin.categories.index') }}">
+            <i class="fas fa-book"></i>
+            <span>Buku</span></a>
     </li>
 
     <li class="nav-item active">
-        <a class="nav-link" href="{{ route('admin.categories.index') }}">
+        <a class="nav-link" href="{{ route('admin.loan.index') }}">
             <i class="fas fa-database"></i>
-            <span>Category</span></a>
+            <span>Peminjaman</span></a>
     </li>
 
     <!-- Divider -->

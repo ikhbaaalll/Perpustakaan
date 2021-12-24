@@ -3,7 +3,7 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon">
-            <img src="{{ asset('asset/logo/itera.png') }}" width="32px" height="35px" />
+            <i class="fas fa-book-open"></i>
         </div>
     </a>
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
@@ -15,15 +15,21 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('user.dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
 
     <li class="nav-item active">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('user.book') }}">
+            <i class="fas fa-fw fa-book"></i>
+            <span>Buku</span></a>
+    </li>
+
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('user.book.history') }}">
             <i class="fas fa-database"></i>
-            <span>Data</span></a>
+            <span>Riwayat</span></a>
     </li>
 
     <!-- Divider -->

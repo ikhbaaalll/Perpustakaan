@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Institut Teknologi Sumatera">
     {{-- <link rel="icon" href="{{ asset('images/logo_tubaba.png') }}" type="image/x-icon"> --}}
-    <title>Smart Tourism</title>
+    <title>Login</title>
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Custom fonts for this template-->
@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="bg-gradient-danger">
+<body class="bg-gradient-primary">
 
     <div class="container">
         <div class="row justify-content-center">
@@ -74,10 +74,14 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-danger btn-user justify-content-center">
-                                            {{ __('Login') }}
-                                        </button>
-
+                                        <div class="row justify-content-center">
+                                            <button type="submit" class="btn btn-primary btn-user">
+                                                {{ __('Login') }}
+                                            </button>
+                                        </div>
+                                        <div class="row justify-content-center mt-2">
+                                            Belum punya akun? &nbsp;<a href="/register">Daftar</a>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

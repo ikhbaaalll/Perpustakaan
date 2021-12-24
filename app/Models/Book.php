@@ -17,7 +17,12 @@ class Book extends Model
         'isbn',
         'author',
         'date_of_entry',
-        'quantity'
+        'quantity',
+        'description'
+    ];
+
+    protected $casts = [
+        'date_of_entry' => 'date'
     ];
 
     public function category(): BelongsTo

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class BookStoreRequest extends FormRequest
 {
@@ -16,10 +17,11 @@ class BookStoreRequest extends FormRequest
         return [
             'name' => ['required'],
             'publisher' => ['required'],
-            'isbn' => ['required'],
+            'isbn' => ['required', Rule::unique('books')],
             'author' => ['required'],
             'date_of_entry' => ['required', 'date'],
-            'quantity' => ['required', 'integer']
+            'quantity' => ['required', 'integer'],
+            'description' => ['required', 'string']
         ];
     }
 }
