@@ -17,32 +17,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->create([
+        User::create([
+            'name' => 'admin',
             'email' => 'admin@admin.com',
-            'password' => bcrypt('1')
+            'password' => bcrypt('password'),
+            'role' => 1
         ]);
-        User::factory()->create([
+        User::create([
+            'name' => 'user',
             'email' => 'user@user.com',
-            'password' => bcrypt('1'),
+            'password' => bcrypt('password'),
             'role' => 2
         ]);
-
-        if (app()->environment() == 'local') {
-            Category::factory()->count(10)->create()->each(function ($category) {
-                Book::factory()->count(rand(1, 15))->create([
-                    'category_id' => $category->id
-                ]);
-            });
-
-            Loan::factory()->count(100)->create();
-
-            Loan::factory()->count(10)->create([
-                'status' => Loan::STATUS_WAITING
-            ]);
-
-            Loan::factory()->count(10)->create([
-                'status' => Loan::STATUS_ON_LOAN
-            ]);
-        }
     }
 }
