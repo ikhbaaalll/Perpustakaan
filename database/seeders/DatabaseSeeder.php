@@ -27,20 +27,22 @@ class DatabaseSeeder extends Seeder
             'role' => 2
         ]);
 
-        Category::factory()->count(10)->create()->each(function ($category) {
-            Book::factory()->count(rand(1, 15))->create([
-                'category_id' => $category->id
+        if (app()->environment() == 'local') {
+            Category::factory()->count(10)->create()->each(function ($category) {
+                Book::factory()->count(rand(1, 15))->create([
+                    'category_id' => $category->id
+                ]);
+            });
+
+            Loan::factory()->count(100)->create();
+
+            Loan::factory()->count(10)->create([
+                'status' => Loan::STATUS_WAITING
             ]);
-        });
 
-        Loan::factory()->count(100)->create();
-
-        Loan::factory()->count(10)->create([
-            'status' => Loan::STATUS_WAITING
-        ]);
-
-        Loan::factory()->count(10)->create([
-            'status' => Loan::STATUS_ON_LOAN
-        ]);
+            Loan::factory()->count(10)->create([
+                'status' => Loan::STATUS_ON_LOAN
+            ]);
+        }
     }
 }
