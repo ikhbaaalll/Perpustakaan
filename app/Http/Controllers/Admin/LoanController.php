@@ -43,10 +43,6 @@ class LoanController extends Controller
         ]);
 
         switch (request('validation')) {
-            case 2: {
-                    Book::query()->find($loan->book_id)->decrement('quantity', $loan->quantity);
-                }
-                break;
             case 3: {
                     Book::query()->find($loan->book_id)->increment('quantity', $loan->quantity);
                     $loan->update(
@@ -55,6 +51,7 @@ class LoanController extends Controller
                 }
                 break;
             case 1: {
+                    Book::query()->find($loan->book_id)->increment('quantity', $loan->quantity);
                     $loan->delete();
                 }
                 break;

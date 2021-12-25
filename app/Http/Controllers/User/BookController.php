@@ -26,6 +26,9 @@ class BookController extends Controller
             'user_id' => auth()->id()
         ]);
 
+        Book::query()->find($bookStoreRequest->book_id)
+            ->decrement('quantity', $bookStoreRequest->quantity);
+
         return redirect()->route('user.dashboard')->with('status', 'Sukses meminjam buku.');
     }
 
